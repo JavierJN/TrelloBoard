@@ -1,0 +1,84 @@
+:root {
+    --color-general-text: #333;
+    --color-backgroud-navbar: #3785e5;
+    --color-text-navbar: white;
+    --color-hover-navbar: #1756cc;
+
+    --color-border-headers: #eee;
+
+    --color-background-btn-success: #5cb85c;
+    --color-border-btn-success: #4cae4c;
+    --color-background-btn-success-hover: #449d44;
+    --color-border-btn-success-hover: #398439;
+
+    --color-background-btn-delete: #d9534f;
+    --color-border-btn-delete: #d43f3a;
+    --color-background-btn-delete-hover: #c9302c;
+    --color-border-btn-delete-hover: #ac2925;
+
+    --color-border-post: #ddd;
+    --color-name-user: #337ab7;
+
+    --color-text-black: #555;
+    --color-text-nickname: #969393;
+    --color-number-stats: green;
+
+    --color-border-textarea: #ccc;
+    --color-border-textarea-focus: #66afe9;
+
+    --color-footer: #000000;
+
+
+}
+/* Estilo global para evitar márgenes y paddings predeterminados */
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Altura completa */
+  width: 100%; /* Ancho completo */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Toda la altura de la ventana */
+    width: 100vw; /* Todo el ancho de la ventana */
+    background: blue;
+    display: flex; /* Establece flexbox para centrar o alinear elementos secundarios */
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.layout {
+    display: grid;
+    
+    grid-template-rows: 10% 80% 10%; /* Altura: 50px (cabecera), flexible, y 30px (footer) */
+    grid-template-columns: repeat(4, 1fr); /* Tres columnas flexibles y una fija de 150px */
+    height: 100vh; /* Ocupa todo el alto del contenedor padre */
+    background: var(--color-footer, lightblue); /* Fondo con variable CSS */
+   
+    margin: 0 auto;
+    grid-template-areas:
+        "nav nav nav nav"
+        "content content content content"
+        "footer footer footer footer";
+}
+
+.nav {
+    grid-area: nav;
+    background: lightcoral;
+ 
+}
+
+.content {
+    grid-area: content;
+    background: lightgreen;
+
+}
+
+
+
+.footer {
+    grid-area: footer;
+    background: lightblue;
+}
