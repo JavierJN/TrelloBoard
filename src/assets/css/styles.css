@@ -53,15 +53,14 @@ body {
     display: grid;
     
     grid-template-rows: 10% 80% 10%; /* Altura: 50px (cabecera), flexible, y 30px (footer) */
-    grid-template-columns: repeat(4, 1fr); /* Tres columnas flexibles y una fija de 150px */
+    grid-template-columns: 1fr; /* Tres columnas flexibles y una fija de 150px */
     height: 100vh; /* Ocupa todo el alto del contenedor padre */
     background: var(--color-footer, lightblue); /* Fondo con variable CSS */
-   
     margin: 0 auto;
     grid-template-areas:
-        "nav nav nav nav"
-        "content content content content"
-        "footer footer footer footer";
+        "nav "
+        "content"
+        "footer";
 }
 
 .nav {
@@ -72,10 +71,61 @@ body {
 
 .content {
     grid-area: content;
-    background: lightgreen;
-
+    display:flex;
+    flex-direction: row;
+    background-image: linear-gradient(to bottom, #1e4d92, #2658a3, #2e64b5, #3670c7, #3e7cda);
 }
 
+.btn-column,
+.form-list{
+    
+    
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    width: 15em;
+    height: 1em;
+    margin: 0.5em;
+    column-gap: 1em;
+    background: #3e7cda;
+    border-radius: .8em;
+    color: white;
+
+    transition: all 300ms;  
+    
+}
+
+.btn-column:hover{
+    background: #356bbb;
+    cursor: pointer;
+}
+
+
+.form-list{
+    height: fit-content;
+    display: block;
+    background-color: white;
+}
+
+textarea{
+    
+    width: 100%;
+    height: fit-content;
+    resize: none; /*Quito el resize del textarea*/
+    overflow: hidden; /*Quito el scroll-bar*/
+    min-height: 2em;
+    max-height: 10em;
+    font-size: 14px;
+    font-weight: bold;
+    
+    
+}
+textarea:focus{
+    border-radius: 2px;
+    border: 2px solid #3e7cda;
+    outline: none;
+    
+}
 
 
 .footer {

@@ -1,5 +1,6 @@
 import React from 'react';
 import {DndContext} from '@dnd-kit/core';
+import { AddColumn } from './assets/components/AddColumn';
 
 
 
@@ -17,8 +18,8 @@ function App() {
       </div>
 
       <div className="content">
-      <DndContext>
-        
+      <DndContext >
+        <AddColumn/>
       </DndContext>
       </div>
 
