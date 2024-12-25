@@ -9,6 +9,8 @@ export const Column = ({column}) => {
           <li key={index}>{task}</li>
         ))}
       </ul>
+
+      
     </div>
   )
 }
