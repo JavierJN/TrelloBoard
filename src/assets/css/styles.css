@@ -1,11 +1,10 @@
 :root {
     --color-general-text: #333;
-    --color-backgroud-navbar: #3785e5;
+    --color-background-navbar: #3785e5;
     --color-text-navbar: white;
     --color-hover-navbar: #1756cc;
 
     --color-border-headers: #eee;
-
     --color-background-btn-success: #5cb85c;
     --color-border-btn-success: #4cae4c;
     --color-background-btn-success-hover: #449d44;
@@ -26,39 +25,37 @@
     --color-border-textarea: #ccc;
     --color-border-textarea-focus: #66afe9;
 
-    --color-footer: #000000;
-
-
+    --color-footer: #000;
 }
-/* Estilo global para evitar márgenes y paddings predeterminados */
+
 #root {
-  margin: 0;
-  padding: 0;
-  height: 100%; /* Altura completa */
-  width: 100%; /* Ancho completo */
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
 body {
+    font-family: 'Onest Variable', sans-serif;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Toda la altura de la ventana */
-    width: 100vw; /* Todo el ancho de la ventana */
+    height: 100vh;
+    width: 100vw;
     background: blue;
-    display: flex; /* Establece flexbox para centrar o alinear elementos secundarios */
+    display: flex;
     align-items: stretch;
     justify-content: stretch;
 }
 
 .layout {
     display: grid;
-    
-    grid-template-rows: 10% 80% 10%; /* Altura: 50px (cabecera), flexible, y 30px (footer) */
-    grid-template-columns: 1fr; /* Tres columnas flexibles y una fija de 150px */
-    height: 100vh; /* Ocupa todo el alto del contenedor padre */
-    background: var(--color-footer, lightblue); /* Fondo con variable CSS */
+    grid-template-rows: 10% 80% 10%;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    background: var(--color-footer, lightblue);
     margin: 0 auto;
     grid-template-areas:
-        "nav "
+        "nav"
         "content"
         "footer";
 }
@@ -66,69 +63,141 @@ body {
 .nav {
     grid-area: nav;
     background: lightcoral;
- 
 }
 
 .content {
     grid-area: content;
-    display:flex;
+    display: flex;
     flex-direction: row;
     background-image: linear-gradient(to bottom, #1e4d92, #2658a3, #2e64b5, #3670c7, #3e7cda);
 }
 
 .btn-column,
-.form-list{
-    
-    
+.form-list {
     padding: 12px;
     display: flex;
     align-items: center;
-    width: 15em;
+    width: 20em;
     height: 1em;
     margin: 0.5em;
     column-gap: 1em;
     background: #3e7cda;
-    border-radius: .8em;
+    border-radius: 0.8em;
     color: white;
-
-    transition: all 300ms;  
-    
+    transition: all 300ms;
 }
 
-.btn-column:hover{
+.btn-column {
+    font-weight: bold;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 0.5em;
+    gap: 1em;
+}
+
+button {
+
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    font-size: 1.1em;
+}
+
+.btn-accept {
+    background: var(--color-background-btn-success);
+    border: 1px solid var(--color-border-btn-success);
+    color: white;
+}
+
+.btn-cancel{
+    background: red;
+    border: 1px solid var(--color-border-btn-delete);
+    color: white;
+}
+
+.btn-column:hover {
     background: #356bbb;
     cursor: pointer;
 }
 
-
-.form-list{
-    height: fit-content;
+.form-list {
     display: block;
+    height: fit-content;
     background-color: white;
 }
 
-textarea{
-    
-    width: 100%;
+textarea {
+    width: 98%;
     height: fit-content;
-    resize: none; /*Quito el resize del textarea*/
-    overflow: hidden; /*Quito el scroll-bar*/
-    min-height: 2em;
+    resize: none;
+    overflow: hidden;
+    min-height: 1em;
     max-height: 10em;
-    font-size: 14px;
+    font-size: 1.3em;
     font-weight: bold;
-    
-    
+    field-sizing: content;
 }
-textarea:focus{
+
+textarea:focus {
     border-radius: 2px;
     border: 2px solid #3e7cda;
     outline: none;
-    
 }
-
 
 .footer {
     grid-area: footer;
     background: lightblue;
 }
+
+/* Estilos para las columnas creadas */
+
+
+.column {
+    background-color: #f9f9f9; /* Fondo neutro claro */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 16px; /* Espaciado interno */
+    width: 250px; /* Ancho fijo para columnas consistentes */
+    height: fit-content;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .column h3 {
+    font-size: 18px; /* Tamaño de fuente para el título */
+    color: #333; /* Texto oscuro para contraste */
+    margin-bottom: 12px; /* Separación del contenido */
+    text-align: center; /* Centrar el título */
+  }
+  
+  .column ul {
+    list-style: none; /* Elimina viñetas */
+    padding: 0; /* Sin relleno */
+    margin: 0; /* Sin márgenes */
+  }
+  
+  .column li {
+    background-color: #ffffff; /* Fondo blanco para las tareas */
+    border: 1px solid #e0e0e0; /* Borde sutil */
+    border-radius: 4px; /* Bordes redondeados */
+    padding: 8px 12px; /* Espaciado interno */
+    margin-bottom: 8px; /* Separación entre tareas */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #555; /* Color de texto gris */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    transition: background-color 0.3s; /* Animación para hover */
+  }
+  
+  .column li:hover {
+    background-color: #f1f1f1; /* Cambio de fondo al pasar el cursor */
+    cursor: pointer; /* Cambiar cursor al pasar sobre la tarea */
+  }
+  

@@ -1,26 +1,50 @@
-import React from 'react'
-import { Add } from '../icons/Add'
-import { X } from '../icons/X'
+import React, { useEffect, useState } from 'react';
+
+export const AddColumn = ({createColumn}) => {
+
+  
+  const [columnTitle, setColumnTitle] = useState('');
+
+  const [isVisible, setIsVisible] = useState(false);
+  const showForm = () => setIsVisible(true);
+  const hideForm = () => setIsVisible(false);
 
 
-export const AddColumn = () => {
+
+  const handleAddColumn = () => {
+    if (columnTitle.trim()) {
+      createColumn(columnTitle);
+      setColumnTitle('');
+      hideForm();
+    } else {
+      alert('El campo no puede estar vacio');
+    }
+  }
+ 
+  const updateTitle = (event) => {
+    setColumnTitle(event.target.value);
+  }
+   
+
+
   return (
     <>
-    
-    <div className='form-list'>
-      <textarea  maxLength={512} rows={1}  placeholder='Introduce el nombre de la lista'></textarea>
-      <div className='button'>
-        <button>Añadir lista</button>
-        <button><X/></button>
-      </div>
-      <div>
 
-      </div>
-    </div>
-    <div className='btn-column'> <Add/>Añade otra lista</div>
+      {!isVisible && (<div onClick={showForm} className='btn-column'> + Añadir columna</div>)}
 
-    
+      {isVisible && (
+        <div className='form-list'>
+          <textarea value={columnTitle} onChange={updateTitle}  maxLength={32} rows={1} placeholder='Titulo de la lista'></textarea>
+          <div className='buttons'>
+            <button className='btn-accept' onClick={handleAddColumn}>Añadir</button>
+            <button className='btn-cancel' onClick={hideForm}>X</button>
+          </div>
+          <div>
+
+          </div>
+        </div>
+      )}
     </>
-    
+
   )
 }
