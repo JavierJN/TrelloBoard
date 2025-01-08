@@ -7,7 +7,10 @@ export const AddColumn = ({createColumn}) => {
 
   const [isVisible, setIsVisible] = useState(false);
   const showForm = () => setIsVisible(true);
-  const hideForm = () => setIsVisible(false);
+  const hideForm = () => {
+    setIsVisible(false);
+    setColumnTitle('');
+  };
 
 
 
@@ -18,8 +21,11 @@ export const AddColumn = ({createColumn}) => {
       hideForm();
     } else {
       alert('El campo no puede estar vacio');
+      setColumnTitle('');
     }
   }
+
+  
  
   const updateTitle = (event) => {
     setColumnTitle(event.target.value);

@@ -5,15 +5,17 @@
     --color-hover-navbar: #1756cc;
 
     --color-border-headers: #eee;
-    --color-background-btn-success: #5cb85c;
-    --color-border-btn-success: #4cae4c;
-    --color-background-btn-success-hover: #449d44;
-    --color-border-btn-success-hover: #398439;
+    --color-background-btn-success: #007bff;
+    --color-border-btn-success: #007bff;
+    --color-background-btn-success-hover: #0056b3;
+    --color-border-btn-success-hover: #0056b3;
 
-    --color-background-btn-delete: #d9534f;
-    --color-border-btn-delete: #d43f3a;
-    --color-background-btn-delete-hover: #c9302c;
-    --color-border-btn-delete-hover: #ac2925;
+    --color-background-btn-delete: #6c757d;
+    --color-border-btn-delete: #6c757d;
+    --color-background-btn-delete-hover: #5a6268;
+    --color-border-btn-delete-hover: #5a6268;
+
+
 
     --color-border-post: #ddd;
     --color-name-user: #337ab7;
@@ -41,7 +43,7 @@ body {
     padding: 0;
     height: 100vh;
     width: 100vw;
-    background: blue;
+    color:#333333 ;
     display: flex;
     align-items: stretch;
     justify-content: stretch;
@@ -49,10 +51,9 @@ body {
 
 .layout {
     display: grid;
-    grid-template-rows: 10% 80% 10%;
+    grid-template-rows: 5% 85% 10%;
     grid-template-columns: 1fr;
     height: 100vh;
-    background: var(--color-footer, lightblue);
     margin: 0 auto;
     grid-template-areas:
         "nav"
@@ -61,19 +62,38 @@ body {
 }
 
 .nav {
+    display: flex;
     grid-area: nav;
-    background: lightcoral;
+    background:#1F2937;
+    color: #FFFFFF;
+    align-items: center;
+    padding: 0 1rem;
 }
 
+.nav h1 {
+    font-size: 1.5rem; /* Tamaño de fuente grande pero no excesivo */
+    font-weight: 600; /* Semi-negrita para destacar */
+    margin: 0; /* Elimina márgenes predeterminados */
+    color: #F9FAFB; /* Blanco grisáceo para un toque más suave */
+    letter-spacing: 0.5px; /* Espaciado ligero entre letras para mayor legibilidad */
+}
+
+
+
 .content {
+    
     grid-area: content;
     display: flex;
     flex-direction: row;
-    background-image: linear-gradient(to bottom, #1e4d92, #2658a3, #2e64b5, #3670c7, #3e7cda);
+    overflow-x: auto; /* Permite el scroll horizontal */
+    white-space: nowrap; /* Evita que los elementos se envuelvan */
+    /*background-image: linear-gradient(to bottom, #1e4d92, #2658a3, #2e64b5, #3670c7, #3e7cda);*/
+    background-color: #F4F5F7 ;
 }
 
 .btn-column,
 .form-list {
+    flex-shrink: 0;
     padding: 12px;
     display: flex;
     align-items: center;
@@ -81,10 +101,14 @@ body {
     height: 1em;
     margin: 0.5em;
     column-gap: 1em;
-    background: #3e7cda;
+    background: #2563EB;
     border-radius: 0.8em;
     color: white;
     transition: all 300ms;
+}
+
+.form-list{
+    border: 1px solid #D1D5DB;
 }
 
 .btn-column {
@@ -98,35 +122,51 @@ body {
 }
 
 button {
-
+    font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: .8em;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
 }
 
-button:hover {
-    transform: scale(1.05);
-    font-size: 1.1em;
-}
+
 
 .btn-accept {
-    background: var(--color-background-btn-success);
-    border: 1px solid var(--color-border-btn-success);
+    background: #2563EB;
     color: white;
+}
+
+.btn-accept:hover {
+    background: #1D4ED8;
 }
 
 .btn-cancel{
-    background: red;
-    border: 1px solid var(--color-border-btn-delete);
+    background: #6B7280;
     color: white;
 }
 
+.btn-cancel:hover {
+    background: #4B5563;
+    
+}
+
 .btn-column:hover {
-    background: #356bbb;
+    background: #1D4ED8;
     cursor: pointer;
+}
+
+.btn-add-task{
+    padding: 5px;
+    transition: all 100ms;
+    border-radius: 10px;
+}
+
+.btn-add-task:hover {
+    background: #d6dee6;
+    cursor: pointer;
+    
 }
 
 .form-list {
@@ -134,7 +174,6 @@ button:hover {
     height: fit-content;
     background-color: white;
 }
-
 textarea {
     width: 98%;
     height: fit-content;
@@ -143,39 +182,64 @@ textarea {
     min-height: 1em;
     max-height: 10em;
     font-size: 1.3em;
-    font-weight: bold;
-    field-sizing: content;
+    border-radius: 10px;
+    box-sizing: content-box; /* Corregir field-sizing */
+    color: #6c8094;
+    outline: none; /* Remove the default outline */
 }
 
 textarea:focus {
-    border-radius: 2px;
-    border: 2px solid #3e7cda;
-    outline: none;
+    outline: none; /* Ensure no outline on focus */
+    
+    border: 2px solid #3e7cda; /* Add a border for focus */
 }
+
 
 .footer {
     grid-area: footer;
-    background: lightblue;
+    background: #1F2937;
+    color: #FFFFFF; ;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 /* Estilos para las columnas creadas */
 
 
 .column {
-    background-color: #f9f9f9; /* Fondo neutro claro */
-    border: 1px solid #e0e0e0; /* Borde sutil */
+    flex-shrink: 0;
+    color: #333;
+    background-color: #E5E7EB; /* Fondo neutro claro */
+    border: 1px solid #E5E7EB; /* Borde sutil */
+    margin: 0.5em;
     border-radius: 8px; /* Bordes redondeados */
     padding: 16px; /* Espaciado interno */
-    width: 250px; /* Ancho fijo para columnas consistentes */
+    width: 22em; /* Ancho fijo para columnas consistentes */
     height: fit-content;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
   }
+
+  .column-droppable{
+    background-color: red;
+  }
   
   .column h3 {
+    
+    padding-left: .5em;
+    cursor: grab;
+    
+     /* Ancho completo para el título */
     font-size: 18px; /* Tamaño de fuente para el título */
-    color: #333; /* Texto oscuro para contraste */
+    color: #111827; /* Texto oscuro para contraste */
     margin-bottom: 12px; /* Separación del contenido */
-    text-align: center; /* Centrar el título */
+    text-align: left; /* Centrar el título */
+    
+  }
+
+  .column h3:focus{
+    cursor: pointer;
   }
   
   .column ul {
@@ -191,7 +255,7 @@ textarea:focus {
     padding: 8px 12px; /* Espaciado interno */
     margin-bottom: 8px; /* Separación entre tareas */
     font-size: 14px; /* Tamaño de fuente */
-    color: #555; /* Color de texto gris */
+   
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra suave */
     transition: background-color 0.3s; /* Animación para hover */
   }
@@ -200,4 +264,43 @@ textarea:focus {
     background-color: #f1f1f1; /* Cambio de fondo al pasar el cursor */
     cursor: pointer; /* Cambiar cursor al pasar sobre la tarea */
   }
+
+  
+  .task-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: .5em 0 .5em .5em; /* Aumenté el padding para un mayor espacio interno */
+    position: relative;
+    border: 1px solid #D1D5DB;
+    color:  #1F2937;
+    margin-bottom: 5px;
+    transition:all 300ms
+  }
+
+  .task-card:hover{
+    border: 2px solid #2563EB;
+   
+  }
+
+
+  .task-card-copy {
+    background-color:gray;
+    opacity: .50;
+    min-height: 19px;
+    border-radius: 10px;
+    padding: .5em 0 .5em .5em; /* Aumenté el padding para un mayor espacio interno */
+    position: relative;
+    border-top: 2px solid rgba(143, 143, 143, 0.2);  /* Borde sutil en la parte superior */
+    border-bottom: 2px solid rgba(143, 143, 143, 0.5); /* Borde más marcado en la parte inferior */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para separar de fondo */
+    margin-bottom: 5px;
+  }
+
+
+
+
+  
+  
+  
+
   
